@@ -1,0 +1,161 @@
+<!--
+  Pregnancy Journey Tracker — drop-in component
+  =============================================
+  Include pregnancy-tracker.css and pregnancy-tracker.js (which also loads
+  weeks-data.js) in your page, then paste this <section> wherever the
+  tracker should appear. All styles are scoped under .pregnancy-tracker.
+-->
+
+<link rel="stylesheet" href="pregnancy-tracker.css">
+
+<section class="pregnancy-tracker" id="pregnancy-tracker" aria-labelledby="pt-heading">
+
+  <!-- Header -->
+  <header class="pt-header">
+    <p class="pt-eyebrow">Pregnancy Journey</p>
+    <h2 id="pt-heading" class="pt-title">Track your baby's development, week by week</h2>
+    <p class="pt-lede">Follow your baby's growth with simple, reassuring information for every week of your pregnancy.</p>
+  </header>
+
+  <!-- Week selector -->
+  <div class="pt-selector">
+    <div class="pt-selector-row">
+      <button type="button" class="pt-nav-btn" id="pt-prev" aria-label="Go to previous week">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="pt-week-display">
+        <span class="pt-week-current" id="pt-week-current">Week 21</span>
+        <span class="pt-week-of">of 42 weeks</span>
+      </div>
+
+      <button type="button" class="pt-nav-btn" id="pt-next" aria-label="Go to next week">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <!-- Trimester indicator -->
+    <div class="pt-trimesters" role="group" aria-label="Trimester">
+      <span class="pt-trimester-pill" data-trimester="First Trimester">First</span>
+      <span class="pt-trimester-pill" data-trimester="Second Trimester">Second</span>
+      <span class="pt-trimester-pill" data-trimester="Third Trimester">Third</span>
+    </div>
+
+    <!-- Progress -->
+    <div class="pt-progress-block">
+      <div class="pt-progress-labels">
+        <span id="pt-progress-text">Week 21 of 42</span>
+        <span id="pt-progress-percent">50% of the journey</span>
+      </div>
+      <div class="pt-progress-track" role="progressbar" aria-label="Pregnancy progress" aria-valuemin="0" aria-valuemax="100" id="pt-progress-track" aria-valuenow="50">
+        <div class="pt-progress-fill" id="pt-progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="pt-timeline-wrap">
+      <div class="pt-timeline" id="pt-timeline" role="listbox" aria-label="Select a pregnancy week">
+        <!-- Groups injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="pt-main">
+
+    <!-- Left: illustration -->
+    <div class="pt-illustration-col">
+      <div class="pt-illustration-card">
+        <div class="pt-illustration-frame">
+          <img id="pt-illustration" src="images/pregnancy/week-21.svg" alt="" class="pt-illustration-img">
+        </div>
+        <p class="pt-illustration-caption">Baby at <strong id="pt-caption-week">Week 21</strong></p>
+      </div>
+
+      <!-- Baby size -->
+      <div class="pt-card pt-size-card">
+        <h3 class="pt-card-title">Baby size</h3>
+        <div class="pt-size-grid">
+          <div class="pt-size-item">
+            <span class="pt-size-label">Length</span>
+            <span class="pt-size-value" id="pt-size-length">~26.7 cm</span>
+          </div>
+          <div class="pt-size-item">
+            <span class="pt-size-label">Weight</span>
+            <span class="pt-size-value" id="pt-size-weight">~360 g</span>
+          </div>
+        </div>
+        <p class="pt-size-comparison">About the size of <strong id="pt-size-comparison">a carrot</strong></p>
+      </div>
+    </div>
+
+    <!-- Right: info -->
+    <div class="pt-info-col">
+
+      <!-- Weekly overview -->
+      <div class="pt-card pt-overview-card">
+        <span class="pt-week-badge" id="pt-overview-badge">Week 21</span>
+        <h3 class="pt-headline" id="pt-headline">Your baby is becoming more active</h3>
+        <p class="pt-summary" id="pt-summary">Movements become noticeably more coordinated…</p>
+      </div>
+
+      <!-- What's changed -->
+      <div class="pt-card pt-changes-card">
+        <h3 class="pt-card-title pt-changes-title">
+          <span class="pt-sparkle" aria-hidden="true">✨</span> What's changed this week?
+        </h3>
+        <ul class="pt-changes-list" id="pt-changes-list">
+          <!-- injected -->
+        </ul>
+      </div>
+
+      <!-- Development -->
+      <div class="pt-card pt-dev-card" id="pt-dev-card">
+        <h3 class="pt-card-title">Baby's development</h3>
+        <div class="pt-dev-grid" id="pt-dev-grid">
+          <!-- injected -->
+        </div>
+      </div>
+
+      <!-- Status + Milestone -->
+      <div class="pt-status-milestone-row">
+        <div class="pt-card pt-status-card">
+          <h3 class="pt-card-title">Development status</h3>
+          <p class="pt-status-word" id="pt-status-word">Developing</p>
+          <p class="pt-status-text" id="pt-status-text">Coordination and rhythm of movement continue to improve steadily.</p>
+        </div>
+
+        <div class="pt-card pt-milestone-card">
+          <h3 class="pt-card-title">This week's milestone</h3>
+          <p class="pt-milestone-title" id="pt-milestone-title">Regular Movement</p>
+          <p class="pt-milestone-text" id="pt-milestone-text">Kicks and rolls are often felt more consistently from this week on.</p>
+        </div>
+      </div>
+
+      <p class="pt-disclaimer">
+        Development can vary from pregnancy to pregnancy. This tracker provides general educational information and is not a substitute for medical advice.
+      </p>
+    </div>
+  </div>
+
+  <!-- Bottom navigation -->
+  <div class="pt-bottom-nav">
+    <button type="button" class="pt-bottom-btn pt-bottom-prev" id="pt-prev-bottom">
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Previous week
+    </button>
+    <span class="pt-bottom-week" id="pt-bottom-week">Week 21</span>
+    <button type="button" class="pt-bottom-btn pt-bottom-next" id="pt-next-bottom">
+      Next week
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <footer class="pt-footer-disclaimer">
+    Information provided is for general educational purposes only. Pregnancy and fetal development can vary. Please consult a qualified healthcare professional for personal medical advice.
+  </footer>
+
+</section>
+
+<script src="weeks-data.js"></script>
+<script src="pregnancy-tracker.js"></script>
